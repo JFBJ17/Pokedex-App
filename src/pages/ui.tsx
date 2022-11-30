@@ -11,7 +11,7 @@ export default function UI () {
         color='primary'
         startIcon={<FaArrowRight />}
       /> */}
-      <Input placeholder='Placeholder' fullWidth state='success' />
+      <Input placeholder='Placeholder' type='password' fullWidth hiddenLabel />
     </div>
   )
 }

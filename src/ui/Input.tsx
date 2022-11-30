@@ -2,6 +2,8 @@ import cn from 'clsx'
 import { useState } from 'react'
 import { AiOutlineCheckCircle } from 'react-icons/ai'
 import { BiErrorCircle } from 'react-icons/bi'
+import { IoEyeSharp } from 'react-icons/io5'
+import { FaEyeSlash } from 'react-icons/fa'
 
 import { SizeType } from '../interfaces/base'
 
@@ -37,6 +39,7 @@ export const Input: React.FC<Props> = ({
   type = 'text'
 }) => {
   const [isFocus, setIsFocus] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
   const classNames = cn('input', {
     'h-9': size === 'small',
@@ -61,7 +64,8 @@ export const Input: React.FC<Props> = ({
     'text-red-400': state === 'error',
     'text-base': size === 'small',
     'text-lg': size === 'medium',
-    'text-xl': size === 'large'
+    'text-xl': size === 'large',
+    'cursor-pointer': type === 'password'
   })
 
   return (
@@ -70,7 +74,7 @@ export const Input: React.FC<Props> = ({
       <div className={classNames}>
         {endIcon && <span className={classNamesIcon}>{endIcon}</span>}
         <input
-          type={type}
+          type={showPassword ? 'text' : type}
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
           id={id}
@@ -88,6 +92,14 @@ export const Input: React.FC<Props> = ({
         )}
         {state === 'error' && (
           <span className={classNamesIcon}>{<BiErrorCircle />}</span>
+        )}
+        {type === 'password' && !state && (
+          <span
+            className={classNamesIcon}
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <FaEyeSlash /> : <IoEyeSharp />}
+          </span>
         )}
       </div>
     </>
