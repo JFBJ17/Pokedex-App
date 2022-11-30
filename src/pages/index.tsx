@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useState, useEffect } from 'react'
+import { useQuery } from 'react-query'
+
 import { Pokemon } from '../interfaces/pokemon.interface'
 import { Layout } from '../layouts/Layout'
 import { PokeCard } from '../ui/PokeCard'
-import { Grid } from '../styles/home'
+import { PaginationUI } from '../ui/PaginationUI'
+import { usePokemon } from '../hooks/usePokemon'
 
 interface PokemonState {
   id: number
@@ -13,17 +16,19 @@ interface PokemonState {
 }
 
 export default function Home () {
-  const [pokemons, setPokemons] = useState<PokemonState[]>([])
   // https://pokeapi.co/api/v2/pokemon?offset=0&limit=20
+  const { getPokemons } = usePokemon()
+  const [pokemons, setPokemons] = useState<PokemonState[]>([])
+  const { data, error, isLoading } = useQuery('Pokemons', getPokemons)
   const { NEXT_PUBLIC_API } = process.env
 
   const getPokeData = async () => {
     try {
-      const pokemons = await axios.get(NEXT_PUBLIC_API)
+      /* const pokemons = await axios.get(NEXT_PUBLIC_API)
       const pokeData: Pokemon[] = await Promise.all(
         pokemons.data.results.map(async e => (await axios.get(e.url)).data)
-      )
-      const pokeList = pokeData.map(pokemon => {
+      ) */
+      const pokeList = data.map(pokemon => {
         return {
           id: pokemon.id,
           name: pokemon.name,
@@ -33,7 +38,7 @@ export default function Home () {
       })
       setPokemons(pokeList)
     } catch (error) {
-      console.error(error?.message as string)
+      console.error('Error al obtener los datos')
     }
   }
 
@@ -41,9 +46,16 @@ export default function Home () {
     getPokeData()
   }, [])
 
+  console.log('DATA', data)
+  console.log('LOADING', isLoading)
+  console.log('ERROR', error)
+
   return (
     <Layout>
-      <Grid>
+      <div className='bg-red-300 dark:bg-slate-500'>
+        <PaginationUI />
+      </div>
+      <div>
         {pokemons.map(pokemon => {
           return (
             <PokeCard
@@ -52,10 +64,14 @@ export default function Home () {
               order={pokemon.id}
               pokemonType={pokemon.types}
               name={pokemon.name}
+              onClick={() => console.log(pokemon.id)}
             />
           )
         })}
-      </Grid>
+      </div>
+      <div>
+        <PaginationUI />
+      </div>
     </Layout>
   )
 }

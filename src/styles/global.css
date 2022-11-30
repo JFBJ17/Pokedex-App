@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  @apply inline-flex items-center justify-center font-medium min-w-[64px] leading-[1.75] tracking-[0.02857em] shadow-lg gap-2;
+}
+
+.btn:disabled {
+  @apply cursor-not-allowed;
+}
+
+.input {
+  @apply border border-solid rounded-lg bg-white px-5 flex justify-between items-center gap-2;
+}

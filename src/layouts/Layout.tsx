@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { MainLayout } from '../styles/layout'
 
 export const Layout: React.FC = ({ children }) => {
   return (
@@ -16,10 +15,10 @@ export const Layout: React.FC = ({ children }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Header />
-      <MainLayout>
+      <main>
         <ToastContainer theme='colored' />
         {children}
-      </MainLayout>
+      </main>
     </>
   )
 }

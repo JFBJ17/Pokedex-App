@@ -1,7 +1,5 @@
 import { createContext } from 'react'
-import { ThemeProvider } from 'styled-components'
 import { useDarkMode } from '../hooks/useDarkMode'
-import { theme } from '../styles/theme'
 
 interface ThemeContextValue {
   themeMode: 'light' | 'dark'
@@ -16,9 +14,7 @@ const GlobalThemeProvider: React.FC = ({ children }) => {
   const { themeMode, setThemeMode } = useDarkMode()
   return (
     <ThemeContext.Provider value={{ themeMode, setThemeMode }}>
-      <ThemeProvider theme={themeMode === 'dark' ? theme.dark : theme.light}>
-        {children}
-      </ThemeProvider>
+      {children}
     </ThemeContext.Provider>
   )
 }

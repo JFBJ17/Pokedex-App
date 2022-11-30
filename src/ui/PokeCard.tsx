@@ -1,34 +1,28 @@
 import Image from 'next/image'
-import {
-  CardBody,
-  CardContainer,
-  CardFooter,
-  CardHeader,
-  PokeTypeItem,
-  PokeTypeList
-} from '../styles/pokecard'
 
 interface Props {
   pokemonType: string[]
   order: number
   name: string
   img_url: string
+  onClick?: React.MouseEventHandler<HTMLDivElement>
 }
 
 export const PokeCard: React.FC<Props> = ({
   pokemonType,
   order,
   name,
-  img_url
+  img_url,
+  onClick
 }) => {
   const pokeIndex = order.toString().padStart(3, '0')
 
   return (
-    <CardContainer>
-      <CardHeader>
+    <div onClick={onClick}>
+      <div>
         <span className='pokeindex'>{`#${pokeIndex}`}</span>
-      </CardHeader>
-      <CardBody pokemonType={pokemonType[0]}>
+      </div>
+      <div>
         <Image
           alt={`${name}-${order}`}
           src={img_url}
@@ -36,19 +30,15 @@ export const PokeCard: React.FC<Props> = ({
           width={300}
           height={175}
         />
-      </CardBody>
-      <CardFooter>
+      </div>
+      <div>
         <span className='pokename'>{name}</span>
-        <PokeTypeList>
+        <ul>
           {pokemonType.map((poke, i) => {
-            return (
-              <PokeTypeItem key={i} pokemonType={poke}>
-                {poke}
-              </PokeTypeItem>
-            )
+            return <li key={i}>{poke}</li>
           })}
-        </PokeTypeList>
-      </CardFooter>
-    </CardContainer>
+        </ul>
+      </div>
+    </div>
   )
 }
