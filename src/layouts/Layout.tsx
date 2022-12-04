@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Header from '../components/Header'
+import Header from '../components/base/Header'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 

@@ -5,7 +5,7 @@ export const pokeTypeColor = {
   dragon: '#AB82FF',
   electric: '#FFD700',
   ghost: '#778899',
-  fire: '#FF7F00',
+  fire: 'bg-fireType',
   fairy: '#FFB0FF',
   ice: '#ADD8E6',
   fighting: '#FF6A6A',
@@ -15,7 +15,7 @@ export const pokeTypeColor = {
   rock: '#CD853F',
   dark: '#A9A9A9',
   ground: '#DEB887',
-  poison: '#CC88BB',
+  poison: 'bg-poisonType',
   flying: '#BAAAFF'
 }
 

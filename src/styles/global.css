@@ -13,3 +13,34 @@
 .input {
   @apply border border-solid rounded-lg bg-white px-5 flex justify-between items-center gap-2;
 }
+
+.rc-pagination {
+  @apply inline-flex gap-2;
+}
+
+.rc-pagination-prev,
+.rc-pagination-next,
+.rc-pagination-item {
+  @apply border border-solid border-current min-w-[28px] h-7 flex justify-center items-center cursor-pointer text-secondary;
+}
+
+.rc-pagination-disabled {
+  @apply cursor-not-allowed text-gray-400;
+}
+
+.rc-pagination-item-active {
+  @apply text-primary-main;
+}
+
+.rc-pagination-jump-next,
+.rc-pagination-jump-prev {
+  @apply cursor-pointer;
+}
+
+.bg-fireType {
+  @apply bg-[#FF7F00];
+}
+
+.bg-poisonType {
+  @apply bg-[#CC88BB];
+}

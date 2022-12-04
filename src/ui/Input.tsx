@@ -1,9 +1,10 @@
 import cn from 'clsx'
+
 import { useState } from 'react'
-import { AiOutlineCheckCircle } from 'react-icons/ai'
-import { BiErrorCircle } from 'react-icons/bi'
-import { IoEyeSharp } from 'react-icons/io5'
 import { FaEyeSlash } from 'react-icons/fa'
+import { IoEyeSharp } from 'react-icons/io5'
+import { BiErrorCircle } from 'react-icons/bi'
+import { AiOutlineCheckCircle } from 'react-icons/ai'
 
 import { SizeType } from '../interfaces/base'
 

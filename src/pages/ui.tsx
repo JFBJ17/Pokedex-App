@@ -1,6 +1,8 @@
 import { Button } from '../ui/Button'
 import { FaUser, FaArrowRight, FaArrowLeft } from 'react-icons/fa'
 import { Input } from '../ui/Input'
+import { Pagination } from '../ui/Pagination'
+import { Card } from '../components/base/Card'
 
 export default function UI () {
   return (
@@ -11,7 +13,14 @@ export default function UI () {
         color='primary'
         startIcon={<FaArrowRight />}
       /> */}
-      <Input placeholder='Placeholder' type='password' fullWidth hiddenLabel />
+      {/* <Input placeholder='Placeholder' type='password' fullWidth hiddenLabel /> */}
+      {/* <Pagination /> */}
+      <Card
+        img_url='https://picsum.photos/300/175'
+        name='pokemon'
+        order={23}
+        pokemonType={['Fire', 'Poison']}
+      />
     </div>
   )
 }

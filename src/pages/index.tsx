@@ -4,8 +4,8 @@ import { useQuery } from 'react-query'
 
 import { Pokemon } from '../interfaces/pokemon.interface'
 import { Layout } from '../layouts/Layout'
-import { PokeCard } from '../ui/PokeCard'
-import { PaginationUI } from '../ui/PaginationUI'
+import { PokeCard } from '../components/base/Card'
+import { Pagination } from '../ui/Pagination'
 import { usePokemon } from '../hooks/usePokemon'
 
 interface PokemonState {
@@ -53,7 +53,7 @@ export default function Home () {
   return (
     <Layout>
       <div className='bg-red-300 dark:bg-slate-500'>
-        <PaginationUI />
+        <Pagination />
       </div>
       <div>
         {pokemons.map(pokemon => {
@@ -70,7 +70,7 @@ export default function Home () {
         })}
       </div>
       <div>
-        <PaginationUI />
+        <Pagination />
       </div>
     </Layout>
   )

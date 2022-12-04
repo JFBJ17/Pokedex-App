@@ -1,8 +1,8 @@
-import Pagination from 'rc-pagination'
+import RCPagination from 'rc-pagination'
 
-export const PaginationUI = () => {
+export const Pagination = () => {
   return (
-    <Pagination
+    <RCPagination
       defaultCurrent={1}
       total={1154}
       defaultPageSize={20}
