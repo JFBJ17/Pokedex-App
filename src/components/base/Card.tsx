@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import cn from 'clsx'
+
 import { getPokeTypeColor } from '../../helpers/functions'
 
 interface Props {
@@ -46,13 +48,28 @@ export const Card: React.FC<Props> = ({
         <ul className='flex justify-center gap-5 mt-2'>
           {pokemonType.map((poke, i) => {
             console.log(getPokeTypeColor(poke.toLowerCase()))
+            const classNames = cn('w-1/2 rounded-full text-center', {
+              'bg-steelType': poke.toLowerCase() === 'steel',
+              'bg-waterType': poke.toLowerCase() === 'water',
+              'bg-bugType': poke.toLowerCase() === 'bug',
+              'bg-dragonType': poke.toLowerCase() === 'dragon',
+              'bg-electricType': poke.toLowerCase() === 'electric',
+              'bg-ghostType': poke.toLowerCase() === 'ghost',
+              'bg-fireType': poke.toLowerCase() === 'fire',
+              'bg-fairyType': poke.toLowerCase() === 'fairy',
+              'bg-iceType': poke.toLowerCase() === 'ice',
+              'bg-fighting': poke.toLowerCase() === 'fighting',
+              'bg-normalType': poke.toLowerCase() === 'normal',
+              'bg-grassType': poke.toLowerCase() === 'grass',
+              'bg-psychicType': poke.toLowerCase() === 'psychic',
+              'bg-rockType': poke.toLowerCase() === 'rock',
+              'bg-darkType': poke.toLowerCase() === 'dark',
+              'bg-groundType': poke.toLowerCase() === 'ground',
+              'bg-poisonType': poke.toLowerCase() === 'poison',
+              'bg-flyingType': poke.toLowerCase() === 'flying'
+            })
             return (
-              <li
-                className={`w-1/2 rounded-full text-center ${getPokeTypeColor(
-                  poke.toLowerCase()
-                )}`}
-                key={i}
-              >
+              <li className={classNames} key={i}>
                 {poke}
               </li>
             )

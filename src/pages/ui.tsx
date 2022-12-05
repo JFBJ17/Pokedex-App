@@ -19,7 +19,7 @@ export default function UI () {
         img_url='https://picsum.photos/300/175'
         name='pokemon'
         order={23}
-        pokemonType={['Fire', 'Poison']}
+        pokemonType={['Water', 'Grass']}
       />
     </div>
   )

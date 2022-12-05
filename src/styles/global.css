@@ -36,11 +36,3 @@
 .rc-pagination-jump-prev {
   @apply cursor-pointer;
 }
-
-.bg-fireType {
-  @apply bg-[#FF7F00];
-}
-
-.bg-poisonType {
-  @apply bg-[#CC88BB];
-}
