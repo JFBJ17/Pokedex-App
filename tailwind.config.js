@@ -35,6 +35,9 @@ module.exports = {
         groundType: '#DEB887',
         poisonType: '#CC88BB',
         flyingType: '#BAAAFF'
+      },
+      screens: {
+        mobileL: '425px'
       }
     }
   },

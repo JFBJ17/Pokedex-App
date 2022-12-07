@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Header from '../components/base/Header'
+import { Navbar } from '../components/base/Navbar'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -14,7 +14,7 @@ export const Layout: React.FC = ({ children }) => {
         />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Header />
+      <Navbar />
       <main>
         <ToastContainer theme='colored' />
         {children}

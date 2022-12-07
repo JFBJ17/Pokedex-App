@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 
 import { Pokemon } from '../interfaces/pokemon.interface'
 import { Layout } from '../layouts/Layout'
-import { PokeCard } from '../components/base/Card'
+import { Card } from '../components/base/Card'
 import { Pagination } from '../ui/Pagination'
 import { usePokemon } from '../hooks/usePokemon'
 
@@ -52,13 +52,16 @@ export default function Home () {
 
   return (
     <Layout>
-      <div className='bg-red-300 dark:bg-slate-500'>
+      <h1 className='bg-white text-4xl font-bold border-b border-solid border-b-black mb-5 p-2 shadow sticky top-0 z-50'>
+        Home
+      </h1>
+      <div className='flex justify-center mb-5'>
         <Pagination />
       </div>
-      <div>
+      <div className='container flex flex-col items-center gap-5 mb-28'>
         {pokemons.map(pokemon => {
           return (
-            <PokeCard
+            <Card
               img_url={pokemon.img_url}
               key={pokemon.id}
               order={pokemon.id}
@@ -69,9 +72,9 @@ export default function Home () {
           )
         })}
       </div>
-      <div>
+      {/* <div>
         <Pagination />
-      </div>
+      </div> */}
     </Layout>
   )
 }
