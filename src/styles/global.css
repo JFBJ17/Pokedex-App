@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-white dark:bg-slate-800;
+}
+
 .btn {
   @apply inline-flex items-center justify-center font-medium min-w-[64px] leading-[1.75] tracking-[0.02857em] shadow-lg gap-2;
 }

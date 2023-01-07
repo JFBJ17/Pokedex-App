@@ -1,12 +1,14 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useQuery } from 'react-query'
+import { ImSearch } from 'react-icons/im'
 
 import { Pokemon } from '../interfaces/pokemon.interface'
 import { Layout } from '../layouts/Layout'
 import { Card } from '../components/base/Card'
 import { Pagination } from '../ui/Pagination'
 import { usePokemon } from '../hooks/usePokemon'
+import { Input } from '../ui/Input'
 
 interface PokemonState {
   id: number
@@ -51,14 +53,20 @@ export default function Home () {
   console.log('ERROR', error)
 
   return (
-    <Layout>
-      <h1 className='bg-white text-4xl font-bold border-b border-solid border-b-black mb-5 p-2 shadow sticky top-0 z-50'>
-        Home
-      </h1>
-      <div className='flex justify-center mb-5'>
+    <Layout title='Inicio'>
+      <form className='px-2'>
+        <Input
+          hiddenLabel
+          fullWidth
+          type='search'
+          endIcon={<ImSearch />}
+          placeholder='Buscar pokemon'
+        />
+      </form>
+      <section className='my-5 overflow-x-auto px-2 h-10'>
         <Pagination />
-      </div>
-      <div className='container flex flex-col items-center gap-5 mb-28'>
+      </section>
+      <section className='container mx-auto px-5 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5'>
         {pokemons.map(pokemon => {
           return (
             <Card
@@ -71,10 +79,10 @@ export default function Home () {
             />
           )
         })}
-      </div>
-      {/* <div>
+      </section>
+      <section className='mt-5 mb-28 overflow-x-auto px-2 h-10'>
         <Pagination />
-      </div> */}
+      </section>
     </Layout>
   )
 }

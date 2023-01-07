@@ -29,7 +29,7 @@ export const Card: React.FC<Props> = ({
       <picture className='relative block cursor-pointer'>
         <span className='absolute top-2 left-2 z-10 bg-gray-600 text-white p-3 rounded-full'>{`#${pokeIndex}`}</span>
         <Link href='/'>
-          <a>
+          <a className='flex justify-center items-center'>
             <Image
               alt={`${name}-${order}`}
               src={img_url}
