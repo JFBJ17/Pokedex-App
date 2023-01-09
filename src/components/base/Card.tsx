@@ -2,12 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import cn from 'clsx'
 
-import { getPokeTypeColor } from '../../helpers/functions'
-
 interface Props {
   pokemonType: string[]
   order: number
-  name: string
+  name: string | React.ReactNode
   img_url: string
   onClick?: React.MouseEventHandler<HTMLDivElement>
 }
@@ -31,7 +29,11 @@ export const Card: React.FC<Props> = ({
         <Link href='/'>
           <a className='flex justify-center items-center'>
             <Image
-              alt={`${name}-${order}`}
+              alt={
+                typeof name === 'string' && typeof order === 'string'
+                  ? `${name}-${order}`
+                  : 'pokecard'
+              }
               src={img_url}
               objectFit='contain'
               width={300}
@@ -47,7 +49,6 @@ export const Card: React.FC<Props> = ({
         </span>
         <ul className='flex justify-center gap-5 mt-2'>
           {pokemonType.map((poke, i) => {
-            console.log(getPokeTypeColor(poke.toLowerCase()))
             const classNames = cn('w-1/2 rounded-full text-center', {
               'bg-steelType': poke.toLowerCase() === 'steel',
               'bg-waterType': poke.toLowerCase() === 'water',

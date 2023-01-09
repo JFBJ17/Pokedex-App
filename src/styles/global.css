@@ -40,3 +40,7 @@ body {
 .rc-pagination-jump-prev {
   @apply cursor-pointer;
 }
+
+.dropzoneContainer > span {
+  @apply w-full h-full !important;
+}

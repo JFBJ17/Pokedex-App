@@ -71,7 +71,11 @@ export const Input: React.FC<Props> = ({
 
   return (
     <>
-      {!hiddenLabel && <label htmlFor={id}>{label}</label>}
+      {!hiddenLabel && (
+        <label className='text-black dark:text-white' htmlFor={id}>
+          {label}
+        </label>
+      )}
       <div className={classNames}>
         {endIcon && <span className={classNamesIcon}>{endIcon}</span>}
         <input

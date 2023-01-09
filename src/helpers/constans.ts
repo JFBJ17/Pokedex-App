@@ -1,3 +1,11 @@
+import axios from 'axios'
+
+const { NEXT_PUBLIC_API } = process.env
+
+export const POKEMONS_API = axios.create({
+  baseURL: NEXT_PUBLIC_API
+})
+
 export const pokeTypeColor = {
   steel: '#CCCCCC',
   water: '#B0E2FF',
@@ -38,24 +46,4 @@ Tipo siniestro	#A9A9A9	rgb(122,88,72)
 Tipo tierra	#DEB887	rgb(234,214,164)
 Tipo veneno	#CC88BB	rgb(176,88,160)
 Tipo volador	#BAAAFF	rgb(152,168,240)
-
-Steel
-Water
-Bug
-Dragon
-Electric
-Ghost
-Fire
-Fairy
-Ice
-Fighting
-Normal
-Grass
-Psychic
-Rock
-Dark
-Ground
-Poison
-Flying
-
 */

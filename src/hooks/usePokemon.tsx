@@ -1,12 +1,11 @@
 import axios from 'axios'
+import { POKEMONS_API } from '../helpers/constans'
 import { Pokemon } from '../interfaces/pokemon.interface'
 
 export const usePokemon = () => {
-  const { NEXT_PUBLIC_API } = process.env
-
   const getPokemons = async () => {
     try {
-      const pokemons = await axios.get(NEXT_PUBLIC_API)
+      const pokemons = await POKEMONS_API.get('/pokemon')
       const pokeData: Pokemon[] = await Promise.all(
         pokemons.data.results.map(async e => (await axios.get(e.url)).data)
       )
