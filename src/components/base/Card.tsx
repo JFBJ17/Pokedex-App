@@ -1,11 +1,11 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import cn from 'clsx'
+import Link from 'next/link'
+import Image from 'next/image'
 
 interface Props {
   pokemonType: string[]
   order: number
-  name: string | React.ReactNode
+  name: string
   img_url: string
   onClick?: React.MouseEventHandler<HTMLDivElement>
 }
@@ -29,11 +29,7 @@ export const Card: React.FC<Props> = ({
         <Link href='/'>
           <a className='flex justify-center items-center'>
             <Image
-              alt={
-                typeof name === 'string' && typeof order === 'string'
-                  ? `${name}-${order}`
-                  : 'pokecard'
-              }
+              alt={name && order ? `${name}-${order}` : 'pokecard'}
               src={img_url}
               objectFit='contain'
               width={300}
@@ -59,7 +55,7 @@ export const Card: React.FC<Props> = ({
               'bg-fireType': poke.toLowerCase() === 'fire',
               'bg-fairyType': poke.toLowerCase() === 'fairy',
               'bg-iceType': poke.toLowerCase() === 'ice',
-              'bg-fighting': poke.toLowerCase() === 'fighting',
+              'bg-fightingType': poke.toLowerCase() === 'fighting',
               'bg-normalType': poke.toLowerCase() === 'normal',
               'bg-grassType': poke.toLowerCase() === 'grass',
               'bg-psychicType': poke.toLowerCase() === 'psychic',
