@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { FaRegHeart, FaRegUser } from 'react-icons/fa'
 
 export const Navbar = () => {
+  const authData = ''
+
   return (
     <nav className='bg-gray-200 fixed bottom-0 inset-x-0 z-50'>
       {/* <Image src='/Logo.png' alt='Logo' width={182} height={61} /> */}
@@ -28,10 +30,10 @@ export const Navbar = () => {
           </Link>
         </li>
         <li className='flex flex-col justify-center items-center hover:text-blue-500'>
-          <Link href='/user'>
+          <Link href={authData ? '/user' : '/login'}>
             <a className='flex flex-col justify-center items-center'>
               <FaRegUser className='text-2xl' />
-              Usuario
+              {authData ? 'Usuario' : 'Iniciar sesión'}
             </a>
           </Link>
         </li>

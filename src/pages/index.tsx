@@ -1,24 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useQuery } from 'react-query'
 import { ImSearch } from 'react-icons/im'
-
-import { Pokemon } from '../interfaces/pokemon.interface'
-import { Layout } from '../layouts/Layout'
-import { Card } from '../components/base/Card'
-import { Pagination } from '../ui/Pagination'
-import { usePokemon } from '../hooks/usePokemon'
-import { Input } from '../ui/Input'
 import Skeleton from 'react-loading-skeleton'
 
-interface PokemonState {
-  id: number
-  name: string
-  types: string[]
-  img_url: string
-}
+import { Input } from '../ui/Input'
+import { Layout } from '../layouts/Layout'
+import { Pagination } from '../ui/Pagination'
+import { Card } from '../components/base/Card'
+import { usePokemon } from '../hooks/usePokemon'
 
 export default function Home () {
-  // https://pokeapi.co/api/v2/pokemon?offset=0&limit=20
   const { getPokemons } = usePokemon()
   const [pageNumber, setPageNumber] = useState(0)
   const { isLoading, data, isError, error } = useQuery({
